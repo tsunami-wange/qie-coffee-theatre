@@ -53,3 +53,12 @@ export function getMosaicTexture() {
   mosaicTexture.anisotropy=4;
   return mosaicTexture;
 }
+
+let stoneTexture:THREE.CanvasTexture|undefined;
+export function getStoneTexture(){
+ if(stoneTexture)return stoneTexture;
+ const c=document.createElement('canvas');c.width=c.height=512;const x=c.getContext('2d')!;
+ x.fillStyle='#353b38';x.fillRect(0,0,512,512);
+ for(let i=0;i<36;i++){x.strokeStyle=i%4===0?'rgba(233,223,194,.26)':'rgba(145,153,135,.12)';x.lineWidth=i%4===0?1:2;x.beginPath();for(let a=0;a<=512;a+=8){const b=i*25-190+a*.4+Math.sin(a*.017+i)*23+Math.sin(a*.045+i)*6;a===0?x.moveTo(a,b):x.lineTo(a,b)}x.stroke()}
+ stoneTexture=new THREE.CanvasTexture(c);stoneTexture.colorSpace=THREE.SRGBColorSpace;stoneTexture.wrapS=stoneTexture.wrapT=THREE.RepeatWrapping;stoneTexture.anisotropy=4;return stoneTexture;
+}

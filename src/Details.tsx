@@ -13,7 +13,6 @@ function Arc({x,y,z,rx,ry,color=wood,r=.075}:{x:number;y:number;z:number;rx:numb
 function Globe({x,y,z,r,color}:{x:number;y:number;z:number;r:number;color:string}){return <mesh position={[x,y,z]} castShadow><sphereGeometry args={[r,12,8]}/><meshStandardMaterial color={color} roughness={.92}/></mesh>}
 function StreetTree({x}:{x:number}){return <group><Rod from={[x,0,9.2]} to={[x,3.8,9.2]} r={.16} color="#544535"/>{Array.from({length:12},(_,i)=>{const a=i*2.399,h=2.9+(i%4)*.4,rr=.55+(i%3)*.18;return <Globe key={i} x={x+Math.cos(a)*rr} y={h} z={9.2+Math.sin(a)*rr} r={.55+(i%3)*.1} color={i%3===0?'#3d5641':i%3===1?'#52694b':'#637354'}/>})}</group>}
 function Sconce({x,z}:{x:number;z:number}){return <group><mesh position={[x,2.85,z]}><boxGeometry args={[.13,.37,.13]}/><meshStandardMaterial color={gold} metalness={.7}/></mesh><mesh position={[x,3.05,z+.15]}><sphereGeometry args={[.14,12,10]}/><meshStandardMaterial color="#ffe2ae" emissive="#ffb75c" emissiveIntensity={.8}/></mesh><pointLight position={[x,3,z+.35]} intensity={2.5} distance={3} color="#ffcf8b"/></group>}
-function Pot({x,z,color}:{x:number;z:number;color:string}){return <group><mesh position={[x,1.1,z]} castShadow><cylinderGeometry args={[.16,.1,.33,12]}/><meshStandardMaterial color={color} roughness={.4}/></mesh><mesh position={[x,1.34,z]}><sphereGeometry args={[.13,10,8]}/><meshStandardMaterial color="#d2c8a7"/></mesh></group>}
 export function ExteriorDetails(){return <group>
   <Arc x={0} y={3.45} z={6.48} rx={1.43} ry={1.02} color="#d6cab4" r={.095}/>
   <Arc x={0} y={3.48} z={6.51} rx={1.25} ry={.85} color={gold} r={.025}/>
@@ -29,7 +28,6 @@ export function InteriorDetails(){return <group>
   <Arc x={0} y={2.58} z={-5.08} rx={2.94} ry={1.28} color={wood} r={.17}/>
   <Arc x={0} y={2.58} z={-4.97} rx={2.72} ry={1.1} color={gold} r={.028}/>
   {[-2.55,2.55].map(x=><Sconce key={x} x={x} z={-4.98}/>)}
-  {[-2.22,-1.67,1.67,2.22].map((x,i)=><Pot key={i} x={x} z={-4.53} color={i%2?'#ddd0b9':'#668167'}/>)}
   {[-5.9,5.9].map(x=><group key={x}><mesh position={[x,3.2,0]}><boxGeometry args={[.13,1.35,1.8]}/><meshStandardMaterial color={wood}/></mesh><mesh position={[x,3.2,0]}><boxGeometry args={[.14,1.15,1.5]}/><meshStandardMaterial color={cream}/></mesh></group>)}
   <mesh position={[-6.37,.65,.15]}><boxGeometry args={[.48,1.3,2.2]}/><meshStandardMaterial color={wood}/></mesh>
   <mesh position={[-6.1,1.22,.15]}><boxGeometry args={[.12,.12,2.35]}/><meshStandardMaterial color={gold} metalness={.6}/></mesh>
