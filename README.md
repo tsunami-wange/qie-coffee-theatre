@@ -29,6 +29,7 @@ pnpm preview
 - 顶栏自动导览每 6.5 秒切换一个区域，按钮可暂停；手动选择区域也会退出自动导览。
 - 右侧切换昼夜、互动提示点、小地图和全屏。手机可触控旋转与缩放，并用区域导航。
 - 点击门、幕布、咖啡机、产品、食材、座位、留声机、文化卡及礼品可查看说明。点击食材可加入本地概念配方。
+- Qie.Lab 的三张产品海报分别打开蝴蝶酥、酒酿圆子和上海八宝咖啡详情；Qie.Mix 的桂花陈列图可加入配方；文创商店的礼盒画框可查看并切换两张礼盒概念图。入口的“本月风味演出”也展示酒酿圆子海报。
 - 没有设置点单网址时，“进入点单系统”打开本地简化 DIY 面板，不会提交真实订单。
 
 ## 如何调整
@@ -39,10 +40,11 @@ pnpm preview
 | 空间尺寸与色彩 | `src/config.ts` | 修改 `dimensions` 与 `palette`；改变尺寸后同步调整几何坐标 |
 | 导览镜头 | `src/config.ts` | 修改 `areas` 中的 `position` 与 `target` |
 | 产品、配料与文化说明 | `src/config.ts` | 修改 `products`、`ingredients`、`content` 的中英文字段 |
+| 产品海报与礼盒图片 | `public/images/`、`src/config.ts` | 将图片放在 `public/images/`，并在对应条目的 `images` 数组中引用 `./images/文件名` |
 | 建筑、家具、区域模型 | `src/Scene.tsx` | 调整 `Facade`、`Walls`、`Seating`、`Stage`、`Lab`、`Mix` 等组件 |
 | 界面和移动布局 | `src/main.tsx`、`src/styles.css` | 修改控制逻辑与样式 |
 
-模型使用 Three.js 原生几何与程序化组合，无外部 GLB 或远程贴图依赖。`src/textures.ts` 用 Canvas 在本地生成红木纹理和复古小块马赛克；`src/Refinements.tsx` 包含吧台、咖啡机、杯具、菜单与桌面细节。若要替换材质，可在 `B`、`C` 组件中改用纹理材质，并将纹理文件放到项目内。`Label` 使用浏览器 Canvas 生成文字贴图。新增热点时，给三维物体绑定 `onClick`，并将对应内容加入 `content`。
+模型使用 Three.js 原生几何与程序化组合，无外部 GLB 或远程贴图依赖。`src/textures.ts` 用 Canvas 在本地生成红木纹理和复古小块马赛克；`src/Refinements.tsx` 包含吧台、咖啡机、杯具、菜单与桌面细节。用户提供的六张品牌概念图经压缩后保存在 `public/images/`，构建时复制到 `dist/images/` 和 `docs/images/`，用于三维展陈画框和点击后的详情卡。`Label` 使用浏览器 Canvas 生成文字贴图。新增热点时，给三维物体绑定 `onClick`，并将对应内容加入 `content`。
 
 ## 接入已有点单网站
 
@@ -52,7 +54,7 @@ pnpm preview
 
 1. 运行 `pnpm build`，提交更新后的 `docs/`。
 2. 在仓库 **Settings → Pages** 中选择主分支和 `/docs` 目录。
-4. 等待 Pages 给出站点网址。网站使用相对路径，可适应仓库子路径。
+3. 等待 Pages 给出站点网址。网站使用相对路径，可适应仓库子路径。私有仓库能否启用 Pages 取决于 GitHub 账户方案。
 
 当前项目没有配置自动发布工作流；Pages 使用分支中的静态 `docs/` 文件。
 
