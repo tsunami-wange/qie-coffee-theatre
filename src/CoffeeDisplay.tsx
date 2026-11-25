@@ -1,4 +1,5 @@
 import {useMemo} from 'react';
+import {Palmier, DessertPlate} from './Pastries';
 import * as THREE from 'three';
 import {Environment, Lightformer} from '@react-three/drei';
 import {products, type Info} from './config';
@@ -25,11 +26,11 @@ function Drink({x,item,kind,onInfo}:{x:number;item:Info;kind:number;onInfo:(i:In
   <mesh position={[0,.235,.156]}><planeGeometry args={[.27,.135]}/><meshBasicMaterial map={brandMap()} transparent depthWrite={false}/></mesh>
   <mesh castShadow><tubeGeometry args={[spiral,100,.032,10,false]}/><meshPhysicalMaterial color="#fff0d5" roughness={.6}/></mesh>
   {kind===0&&Array.from({length:7},(_,i)=><Pearl key={i} p={[Math.cos(i*2.4)*.085,.55+(i%3)*.025,Math.sin(i*2.4)*.085]} r={.033}/>)}
-  {kind===1&&[-1,1].map(v=><group key={v} position={[v*.058,.61,-.02]} rotation={[0,v*.3,v*.24]}><mesh castShadow><torusGeometry args={[.065,.022,10,28]}/><meshStandardMaterial color="#bf732c" roughness={.8}/></mesh><mesh position={[0,0,.017]}><torusGeometry args={[.04,.009,8,28]}/><meshStandardMaterial color="#e8b15e" roughness={.8}/></mesh></group>)}
+  {kind===1&&<group position={[0,.62,-.015]} rotation={[0,.1,-.12]}><Palmier scale={.7}/></group>}
   {kind===2&&Array.from({length:8},(_,i)=><Pearl key={i} p={[Math.cos(i*2.4)*.09,.55+(i%2)*.04,Math.sin(i*2.4)*.08]} r={.027} c={i%3===0?'#eee1c4':'#722b20'}/>)}
   {Array.from({length:16},(_,i)=><Pearl key={i} p={[Math.cos(i*2.399)*(.025+i*.006),.51+(i%4)*.025,Math.sin(i*2.399)*(.025+i*.006)]} r={kind===1?.009:.006} c={kind===1?'#c58b42':'#e4ac34'}/>)}
   <group position={[.28,.15,.035]} rotation={[-.12,-.12,0]}><mesh castShadow><boxGeometry args={[.19,.29,.025]}/><meshStandardMaterial color="#a9844c" metalness={.65} roughness={.35}/></mesh><mesh position={[0,0,.014]}><planeGeometry args={[.17,.255]}/><meshBasicMaterial map={photo} toneMapped={false}/></mesh></group>
  </group>
 }
-export function CoffeeDisplay({onInfo}:{onInfo:(i:Info)=>void}){return <group><Drink x={-1.75} item={products[2]} kind={0} onInfo={onInfo}/><Drink x={-.92} item={products[1]} kind={1} onInfo={onInfo}/><Drink x={.9} item={products[3]} kind={2} onInfo={onInfo}/></group>}
+export function CoffeeDisplay({onInfo}:{onInfo:(i:Info)=>void}){return <group><Drink x={-1.75} item={products[2]} kind={0} onInfo={onInfo}/><Drink x={-.92} item={products[1]} kind={1} onInfo={onInfo}/><Drink x={.9} item={products[3]} kind={2} onInfo={onInfo}/><DessertPlate x={1.95} y={1.0} z={-4.05} onClick={()=>onInfo(products[1])}/></group>}
 export function StudioReflections(){return <Environment resolution={128} frames={1}><Lightformer position={[0,5,0]} rotation={[Math.PI/2,0,0]} scale={[10,8,1]} intensity={.65} color="#fff0d4"/><Lightformer position={[0,2,8]} scale={[12,4,1]} intensity={1.2} color="#e4f1ff"/><Lightformer position={[-5,2,-4]} rotation={[0,Math.PI/2,0]} scale={[2,3,1]} intensity={.65} color="#ffd39c"/></Environment>}

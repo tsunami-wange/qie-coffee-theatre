@@ -24,7 +24,7 @@ export const content: Record<string,Info> = {
  poster:{title:'本月风味演出',en:'This Month at Qie.Lab',detail:'酒酿圆子云朵咖啡：以江南酒酿与软糯圆子，重写一杯拿铁的尾韵。课程项目概念产品。',detailEn:'Sweet rice ferment and glutinous rice balls give this conceptual latte a Jiangnan finish.',price:'¥42',images:['./images/rice-cloud-poster.jpg']},
  curtain:{title:'QIE.STAGE',en:'Every Cup Is a Performance',detail:'咖啡师在小型剧场般的吧台里完成每一杯风味演出。点击幕布可开合。',detailEn:'A compact theatre turns coffee making into a visible performance. Click the curtain to open or close it.'},
  machine:{title:'舞台上的咖啡机',en:'The Espresso Machine',detail:'吧台后方保留专业操作区；顾客在前方观赏与交流。',detailEn:'The professional work zone remains behind the counter while guests watch from the front.'},
- seat:{title:'海派下午茶',en:'Shanghai Afternoon Tea',detail:'芥末黄扶手椅、墨绿丝绒沙发与红木圆桌构成松弛的观演席。',detailEn:'Mustard armchairs, green velvet sofas and mahogany tables create relaxed theatre seating.'},
+ seat:{title:'海派下午茶',en:'Shanghai Afternoon Tea',detail:'配套墨绿皮质沙发、软包扶手、拉扣靠背与红木圆桌构成松弛的观演席。',detailEn:'Matching green leather sofas, upholstered arms, buttoned backs and mahogany tables create relaxed theatre seating.'},
  gramophone:{title:'留声机',en:'Gramophone',detail:'留声机是近现代都市生活的一个视觉意象。此处用于表达海派空间的新旧交融，并非特定历史事件的复原。',detailEn:'The gramophone evokes modern urban life. Here it is a design metaphor, not a reconstruction of a specific historical event.'},
  map:{title:'中国咖啡风土',en:'Coffee of China',detail:'云南是中国重要的咖啡产区。品牌以中国风土为创意起点，搭配上海的当代咖啡表达。',detailEn:'Yunnan is a major coffee growing region in China. Its terroir inspires the brand’s Shanghai-made creations.'},
  glass:{title:'花纹玻璃隔断',en:'Floral Glass Screen',detail:'圆形花卉纹样与长虹玻璃取材于海派室内语言，构成入口与店内的透光界面。',detailEn:'Floral geometry and ribbed glass create a translucent threshold.'},

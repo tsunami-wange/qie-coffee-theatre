@@ -1,4 +1,5 @@
 import * as THREE from 'three';
+import {DessertPlate} from './Pastries';
 
 const brass='#bb995e',mahogany='#512c26',cream='#ede2c9';
 function Box({p,s,c,metalness=0}:{p:[number,number,number];s:[number,number,number];c:string;metalness?:number}){return <mesh position={p} castShadow receiveShadow><boxGeometry args={s}/><meshStandardMaterial color={c} metalness={metalness} roughness={metalness?.28:.68}/></mesh>}
@@ -19,7 +20,7 @@ export function StageRefinements(){return <group>
   <MenuBoard x={-1.42} title="CLASSICS" subtitle="上海经典 · ¥28–38"/><MenuBoard x={1.42} title="QIE.LAB" subtitle="创意风味 · ¥36–55"/>
  </group>}
 export function SeatingRefinements(){return <group>{[[-3.5,-.4],[-3.5,2.3],[3.5,.2],[3.5,2.55]].map(([x,z],i)=><group key={i}>
-  <Cyl p={[x-.29,1.05,z+.18]} r={.035} h={.25} c={brass}/><Cyl p={[x-.29,1.2,z+.18]} r={.13} h={.12} c="#f2ddb5"/>
-  <Cyl p={[x+.22,1.02,z-.18]} r={.1} h={.1} c={cream}/><Cyl p={[x+.22,1.08,z-.18]} r={.07} h={.012} c="#926442"/>
+  <Cyl p={[x-.31,1.05,z-.27]} r={.035} h={.25} c={brass}/><Cyl p={[x-.31,1.2,z-.27]} r={.085} h={.1} c="#f2ddb5"/>
+  <DessertPlate x={x+.1} y={.95} z={z-.14}/><Cyl p={[x+.33,1.02,z+.25]} r={.1} h={.1} c={cream}/><Cyl p={[x+.33,1.08,z+.25]} r={.07} h={.012} c="#926442"/>
   <Box p={[x,1.0,z+.38]} s={[.25,.025,.16]} c={mahogany}/><Box p={[x,1.027,z+.38]} s={[.2,.006,.12]} c={brass}/>
  </group>)}</group>}

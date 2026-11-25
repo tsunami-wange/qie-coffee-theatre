@@ -12,7 +12,9 @@ export function moveWithCollision(fromX:number, fromZ:number, dx:number, dz:numb
     if(x>-3.85 && x<-1.58 && z>1.92 && z<2.2) return true;
     for(const [tx,tz] of [[-3.5,-.4],[-3.5,2.3],[3.5,.2],[3.5,2.55]]){
       if(Math.hypot(x-tx,z-tz)<.76) return true;
+      for(const side of [-1,1])if(Math.abs(x-(tx+side*1.22))<.51&&Math.abs(z-tz)<.59)return true;
     }
+    if(Math.abs(x+5.95)<.51&&Math.abs(z-.9)<1.15)return true;
     return false;
   };
   let x=fromX,z=fromZ;
@@ -20,3 +22,5 @@ export function moveWithCollision(fromX:number, fromZ:number, dx:number, dz:numb
   if(!blocked(x,z+dz))z+=dz;
   return {x,z};
 }
+
+export function changeHeight(y:number,direction:number,dt:number,max=4.1){return Math.max(.75,Math.min(max,y+direction*Math.min(dt,.05)*1.5))}
