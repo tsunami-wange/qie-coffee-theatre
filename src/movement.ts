@@ -1,4 +1,5 @@
 /** Lightweight 2D collision for the concept store. Positions are metres. */
+import {screenPositions, seatingPositions} from './layout';
 export function moveWithCollision(fromX:number, fromZ:number, dx:number, dz:number, doorOpen:boolean){
   const blocked=(x:number,z:number)=>{
     if(x < -6.48 || x > 6.48 || z < -5.5 || z > 18) return true;
@@ -8,13 +9,14 @@ export function moveWithCollision(fromX:number, fromZ:number, dx:number, dz:numb
     if(x>-3.05 && x<3.05 && z>-5.58 && z<-3.46) return true;
     if(x>3.62 && z>-4.35 && z<-3.18) return true;
     if(x<-3.72 && z>-5.4 && z<-4.18) return true;
-    // Side-wall display and the two screens leave a clear central aisle.
+    // Side-wall display and floral screens leave a clear central aisle.
     if(x>5.55 && z>1.95 && z<4.55) return true;
-    if(z>.78 && z<1.12 && (x>-4.7 && x<-2.3 || x>2.3 && x<4.7)) return true;
-    for(const [tx,tz] of [[-3.5,-.4],[-3.5,2.3],[3.5,-.4],[3.5,2.3]]){
+    for(const [sx,sz] of screenPositions)if(Math.abs(x-sx)<1.2&&Math.abs(z-sz)<.17)return true;
+    for(const [tx,tz] of seatingPositions){
       if(Math.hypot(x-tx,z-tz)<.76) return true;
       for(const side of [-1,1])if(Math.abs(x-(tx+side*1.22))<.51&&Math.abs(z-tz)<.59)return true;
     }
+    if(x>-6.35 && x<-3.05 && z>8.35 && z<9.95) return true;
     return false;
   };
   let x=fromX,z=fromZ;
