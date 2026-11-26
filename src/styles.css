@@ -22,3 +22,14 @@
  .app:has(.modal-shade) .mobile-walk-controls{display:none}
 }
 @media(max-width:380px){.mobile-walk-controls{padding:0 10px}.walk-pad{width:104px;height:104px}.look-instruction{display:none}.exit-walk{right:10px}}
+@media(max-width:760px){
+ .toolrail,.app:has(.mobile-walk-controls) .toolrail{top:calc(76px + env(safe-area-inset-top,0px));right:10px;left:auto;bottom:auto;width:auto;max-width:calc(100vw - 84px);transform:none;display:grid;grid-template-columns:repeat(3,44px);gap:2px;padding:4px;border-radius:9px;justify-content:initial}
+ .toolrail button,.app:has(.mobile-walk-controls) .toolrail button{display:flex;width:44px;height:48px;max-width:none;flex:none;border-radius:5px}
+ .toolrail.tools-collapsed button:nth-child(n+3):nth-child(-n+8){display:none}
+ .toolrail.tools-collapsed button:nth-child(9){grid-column:3;grid-row:1}
+ .toolrail.tools-expanded button:nth-child(n){display:flex}
+ .toolrail.tools-expanded button:nth-child(9){grid-column:auto;grid-row:auto}
+ .app:has(.mobile-walk-controls) .toolrail button:nth-child(n+3):nth-child(-n+8){display:none}
+ .app:has(.mobile-walk-controls) .toolrail{grid-template-columns:repeat(3,44px)}
+}
+@media(max-width:360px){.toolrail,.app:has(.mobile-walk-controls) .toolrail{right:6px;grid-template-columns:repeat(3,40px)}.toolrail button,.app:has(.mobile-walk-controls) .toolrail button{width:40px;height:45px}}
