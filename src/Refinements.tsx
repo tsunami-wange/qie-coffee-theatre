@@ -19,7 +19,7 @@ export function StageRefinements(){return <group>
 
   <MenuBoard x={-1.42} title="CLASSICS" subtitle="上海经典 · ¥28–38"/><MenuBoard x={1.42} title="QIE.LAB" subtitle="创意风味 · ¥36–55"/>
  </group>}
-export function SeatingRefinements(){return <group>{[[-3.5,-.4],[-3.5,2.3],[3.5,.2],[3.5,2.55]].map(([x,z],i)=><group key={i}>
+export function SeatingRefinements(){return <group>{[[-3.5,-.4],[-3.5,2.3],[3.5,-.4],[3.5,2.3]].map(([x,z],i)=><group key={i}>
   <Cyl p={[x-.31,1.05,z-.27]} r={.035} h={.25} c={brass}/><Cyl p={[x-.31,1.2,z-.27]} r={.085} h={.1} c="#f2ddb5"/>
   <DessertPlate x={x+.1} y={.95} z={z-.14}/><Cyl p={[x+.33,1.02,z+.25]} r={.1} h={.1} c={cream}/><Cyl p={[x+.33,1.08,z+.25]} r={.07} h={.012} c="#926442"/>
   <Box p={[x,1.0,z+.38]} s={[.25,.025,.16]} c={mahogany}/><Box p={[x,1.027,z+.38]} s={[.2,.006,.12]} c={brass}/>
