@@ -14,7 +14,7 @@ export const areas: {id:AreaId; zh:string; en:string; position:[number,number,nu
  {id:'lab',zh:'喫怪实验室',en:'Qie.Lab',position:[-4.3,1.8,-2.6],target:[-5.5,1.7,-4.6]},
  {id:'mix',zh:'万般随侬',en:'Qie.Mix',position:[3.8,1.8,-1.5],target:[5.3,1.45,-4.15]},
  {id:'culture',zh:'海派文化区',en:'Shanghai Stories',position:[-4.5,1.7,3.5],target:[-6.3,1.7,1.2]},
- {id:'retail',zh:'文创商店',en:'Theatre Shop',position:[3.9,2.05,4.7],target:[5.35,2.02,2.5]},
+ {id:'retail',zh:'文创商店',en:'Theatre Shop',position:[3.9,2.05,4.7],target:[6.05,2.02,3.25]},
  {id:'overview',zh:'整体俯瞰',en:'Bird’s-eye View',position:[0,15,5.5],target:[0,0,0]},
 ];
 

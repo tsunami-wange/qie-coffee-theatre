@@ -32,5 +32,5 @@ export function InteriorDetails(){return <group>
   <mesh position={[-6.37,.65,.15]}><boxGeometry args={[.48,1.3,2.2]}/><meshStandardMaterial color={wood}/></mesh>
   <mesh position={[-6.1,1.22,.15]}><boxGeometry args={[.12,.12,2.35]}/><meshStandardMaterial color={gold} metalness={.6}/></mesh>
   <Rod from={[-6.1,1.2,-.85]} to={[-6.1,2.6,-.85]} color={wood} r={.08}/><Rod from={[-6.1,1.2,1.15]} to={[-6.1,2.6,1.15]} color={wood} r={.08}/>
-  <Arc x={-6.1} y={2.5} z={.15} rx={1} ry={.5} color={gold} r={.055}/>
+  <Rod from={[-6.1,2.6,-.85]} to={[-6.1,2.6,1.15]} color={gold} r={.055}/>
  </group>}
